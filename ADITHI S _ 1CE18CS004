@@ -1,0 +1,610 @@
+1 ) 
+# SUM-OF-AN-ARRAY
+Write a program to find all pairs in array of integer whose sum is equal to a given  number
+
+#include <stdio.h>
+#define ARRAY_SIZE 100000
+ 
+void hasSumPair(int array[], int size, int sum) {
+  int i;
+  
+  int table[ARRAY_SIZE] = {0};
+ 
+  for (i = 0; i < size; i++) {
+      if(table[sum-array[i]] == 1 && sum-array[i] >= 0) {
+          printf("Found Pair : %d %d\n", array[i], sum-array[i]);
+      }
+      table[array[i]] = 1;
+  }
+}
+ 
+int main(){
+    int i, array[1000], count, sum;
+    printf("Enter the number of elements in Array\n");
+    scanf("%d", &count);
+     
+    printf("Enter %d numbers\n", count);
+    for(i = 0; i < count; i++){
+        scanf("%d", &array[i]);
+    } 
+  
+    printf("Enter the value of sum\n");
+    scanf("%d", &sum);
+  
+    hasSumPair(array, count, sum);
+ 
+    return 0;
+}
+
+==================================================================
+
+OUTPUT 
+
+----------------
+
+Enter the number of elements in Array
+6
+Enter 6 numbers
+1 2 3 4 5 6
+Enter the value of sum
+10
+Found Pair : 6 4
+
+******************************************************************
+
+2 )
+# FIND-THE-SUM-OF-DIGITS
+Find the sum of digits of a number using recursion
+
+#include <stdio.h>
+ 
+
+int sum_of_digit(int n)
+{
+    if (n == 0)
+       return 0;
+    return (n % 10 + sum_of_digit(n / 10));
+}
+ 
+
+int main()
+{
+    int num = 78965;
+    int result = sum_of_digit(num);
+    printf("Sum of digits in %d is %d\n", num, result);
+    return 0;
+}
+
+============================================================================
+
+OUTPUT
+
+-------------------------------
+
+Sum of digits in 78965 is 35
+
+*************************************************************************
+
+3 )
+# FIND-THE-SUM-OF-DIGITS
+Find the sum of digits of a number using recursion
+
+#include <stdio.h>
+ 
+
+int sum_of_digit(int n)
+{
+    if (n == 0)
+       return 0;
+    return (n % 10 + sum_of_digit(n / 10));
+}
+ 
+
+int main()
+{
+    int num = 78965;
+    int result = sum_of_digit(num);
+    printf("Sum of digits in %d is %d\n", num, result);
+    return 0;
+}
+
+============================================================================
+
+OUTPUT
+
+-------------------------------
+
+Sum of digits in 78965 is 35
+
+****************************************************
+
+4 )
+# SUM-OF-FIRST-N-ODD-NOS
+Find the sum of squares of first N odd natural numbers
+
+#include <stdio.h>
+int main() {
+   int n ;
+   int sum = 0;
+   printf("Enter the nos : ");
+   scanf("%d",&n);
+   for (int i = 1; i <= n; i++)
+      sum += (2*i - 1) * (2*i - 1);
+   printf("The sum of square of first %d odd numbers is %d",n, sum);
+   return 0;
+}
+
+=========================================================================================
+
+OUTPUT
+
+--------------------------------------------
+
+Enter the nos : 4
+The sum of square of first 4 odd numbers is 84
+
+**************************************************************
+
+5 )
+# SOLID-AND-HALLOW-RECTANGLE
+Write a program to display a solid and hollow rectangle
+
+HALLOW 
+ 
+----------
+
+#include <stdio.h>
+ 
+
+void print_rectangle(int n, int m)
+{
+    int i, j;
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= m; j++)
+        {
+            if (i==1 || i==n || j==1 || j==m)           
+                printf("*");           
+            else
+                printf(" ");           
+        }
+        printf("\n");
+    }
+ 
+}
+ 
+
+int main()
+{
+    int rows = 4, columns = 8;
+    print_rectangle(rows, columns);
+    return 0;
+}
+
+==================================================================
+
+OUTPUT
+
+----------------------------
+
+********
+*      *
+*      *
+********
+
+======================================================================================
+
+SOLID RECTANGLE
+
+-------------
+
+#include <stdio.h>
+
+int main()
+{
+    int i, j, N;
+
+    
+    printf("Enter number of rows: ");
+    scanf("%d", &N);
+
+    
+    for(i=1; i<=N; i++)
+    {
+       
+        for(j=1; j<=N; j++)
+        {
+            
+            printf("*");
+        }
+        
+
+        
+        printf("\n");
+    }
+
+    return 0;
+}
+
+============================================================
+
+OUTPUT
+
+------------------------------
+
+Enter number of rows: 5
+*****
+*****
+*****
+*****
+*****
+
+***************************************************************************
+
+6 )
+# BINARY-TO-DECIMAL
+Write a program to convert BINARY to DECIMAL
+
+#include <stdio.h>
+#include <math.h>
+
+
+int convert(long long);
+
+int main() {
+  long long n;
+  printf("Enter a binary number: ");
+  scanf("%lld", &n);
+  printf("%lld in binary = %d in decimal", n, convert(n));
+  return 0;
+}
+
+
+int convert(long long n) {
+  int dec = 0, i = 0, rem;
+
+  while (n!=0) {
+    rem = n % 10;
+    n /= 10;
+    dec += rem * pow(2, i);
+    ++i;
+  }
+
+  return dec;
+}
+
+===================================================================
+
+OUTPUT
+
+-------------------------
+
+Enter a binary number: 1110011
+1110011 in binary = 115 in decimal
+
+***********************************************************************
+
+7 )
+# SOLID-RHOMBUS-PATTERN
+Write a program to display the following pattern
+
+#include<stdio.h>
+int main()
+{
+ int num,r,c,sp;
+ printf("Enter number of rows : ");
+ scanf("%d",&num);
+ for(r=1; r<=num; r++)
+ {
+   for(sp=num-r; sp>=1; sp--)
+       printf(" ");
+   for(c=1; c<=r; c++)
+       printf("%d",c);
+   for(c=r-1; c>=1; c--)
+       printf("%d",c);
+   printf("\n");
+ }
+ for(r=1; r<=num; r++)
+ {
+   for(sp=r; sp>=1; sp--)
+       printf(" ");
+   for(c=1; c<=(num-r); c++)
+       printf("%d",c);
+   for(c=num-r-1; c>=1; c--)
+       printf("%d",c);
+   printf("\n");
+ }
+ return 0;
+}
+
+======================================================================
+
+OUTPUT
+
+-----------------------
+
+Enter number of rows : 4
+   1
+  121
+ 12321
+1234321
+ 12321
+  121
+   1
+
+**********************************************************************************
+
+8 )
+# CONVERT-NOS-TO-WORDS
+Write a program to convert NUMBER into WORDS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+
+void convert_to_words(char* num)
+{
+    int len = strlen(
+        num); 
+ 
+    
+    if (len == 0) {
+        fprintf(stderr, "empty string\n");
+        return;
+    }
+    if (len > 4) {
+        fprintf(stderr,
+                "Length more than 4 is not supported\n");
+        return;
+    }
+ 
+    
+    char* single_digits[]
+        = { "zero", "one", "two",   "three", "four",
+            "five", "six", "seven", "eight", "nine" };
+ 
+    
+    char* two_digits[]
+        = { "",          "ten",      "eleven",  "twelve",
+            "thirteen",  "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen" };
+ 
+    
+    char* tens_multiple[] = { "",       "",        "twenty",
+                              "thirty", "forty",   "fifty",
+                              "sixty",  "seventy", "eighty",
+                              "ninety" };
+ 
+    char* tens_power[] = { "hundred", "thousand" };
+ 
+   
+    printf("\n%s: ", num);
+ 
+    
+    if (len == 1) {
+        printf("%s\n", single_digits[*num - '0']);
+        return;
+    }
+ 
+  
+    while (*num != '\0') {
+ 
+        if (len >= 3) {
+            if (*num - '0' != 0) {
+                printf("%s ", single_digits[*num - '0']);
+                printf("%s ",
+                       tens_power[len - 3]); 
+            }
+            --len;
+        }
+ 
+        
+        else {
+            
+            if (*num == '1') {
+                int sum = *num - '0' + *(num + 1) - '0';
+                printf("%s\n", two_digits[sum]);
+                return;
+            }
+ 
+            
+            else if (*num == '2' && *(num + 1) == '0') {
+                printf("twenty\n");
+                return;
+            }
+ 
+            
+            else {
+                int i = *num - '0';
+                printf("%s ", i ? tens_multiple[i] : "");
+                ++num;
+                if (*num != '0')
+                    printf("%s ",
+                           single_digits[*num - '0']);
+            }
+        }
+        ++num;
+    }
+}
+ 
+
+int main(void)
+{
+    convert_to_words("9923");
+    convert_to_words("523");
+    convert_to_words("89");
+    convert_to_words("8");
+ 
+    return 0;
+}
+
+=================================================================================
+
+OUTPUT
+
+---------------------------------
+
+9923: nine thousand nine hundred twenty three 
+523: five hundred twenty three 
+89: eighty nine 
+8: eight
+
+*******************************************************************************************
+
+9 )
+# ZIP-ZAP-ZOOM
+Write a program for ZIP, ZAP and ZOOM game: 
+1. If the number is multiple of 3 to display “ZIP”
+2.  2. If the number is multiple of 5 to display “ZAP” 
+3.  3. If the number is multiple of 3 and 5 to display “ZOOM”
+
+#include<stdio.h>
+int main()
+{
+	int num;
+	printf("Enter a number: ");
+	scanf("%d",&num);
+	if (num % 3 == 0 && num % 5 == 0)
+	{
+		printf("ZOOM \n",num);
+	}
+	else if (num % 3 == 0)
+	{
+		printf("ZIP",num);
+	}
+	else if (num % 5 == 0)
+	{
+		printf("ZAP ",num);
+	}
+
+	else
+	{
+		printf("INVALID",num);
+	}
+	return 0;
+}
+
+=========================================================================================
+
+OUTPUT
+
+---------------------------------
+
+Enter a number: 30
+ZOOM 
+
+******************************************************************************************
+
+10 )
+# INSERTING-A-NOS-IN-ARRAY
+Write a program to insert an element into existing array in a specified position
+
+#include <stdio.h>
+
+int main()
+{
+    int array[50], position, c, n, value;
+    
+    printf("Enter number of elements in the array\n");
+    scanf("%d", &n);
+    
+    printf("Enter %d elements\n", n);
+    
+    for (c = 0; c < n; c++)    
+        scanf("%d", &array[c]);
+    
+    printf("Please enter the location where you want to insert an new element\n");
+    scanf("%d", &position);
+    
+    printf("Please enter the value\n");
+    scanf("%d", &value);
+    
+    for (c = n - 1; c >= position - 1; c--)    
+        array[c+1] = array[c];
+    
+    array[position-1] = value;
+    
+    printf("Resultant array is\n");
+    
+    for (c = 0; c <= n; c++)    
+        printf("%d\n", array[c]);    
+    
+    return 0;
+}
+
+============================================================================================
+
+OUTPUT
+
+---------------------------------------------
+
+Enter number of elements in the array
+4
+Enter 4 elements
+1 2 4 5
+Please enter the location where you want to insert an new element
+3
+Please enter the value
+3
+Resultant array is
+1
+2
+3
+4
+5
+
+*************************************************************************************************
+
+11 )
+# ELEMINATING-VOWELS
+Write a program to remove vowels from string
+
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	
+	char str[100];
+	int i,j,len=0;
+	
+	
+	printf("Enter a string : ");
+	
+	scanf("%s",str);
+	len=strlen(str);
+	
+	
+	for(i=0; i<len; i++)
+	{   
+	   
+		if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='A'||str[i]=='E'||str[i]=='I'||str[i]=='O'||str[i]=='U')
+		{
+		    
+		     
+			for(j=i; j<len; j++)
+			{
+			    
+				str[j]=str[j+1];
+			}
+			i--;
+		    len--;
+		}
+		str[len+1]='\0';
+	}
+	
+	printf("After deleting the vowels, the string will be : %s",str);
+    
+    return 0;	
+}
+
+=====================================================================================================================================================
+
+OUTPUT
+
+----------------------------------------------------
+
+Enter a string : Subsequent
+After deleting the vowels, the string will be : Sbsqnt
+
+********************************************************************
